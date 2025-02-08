@@ -1,9 +1,12 @@
 import axios from 'axios';
 
 const apiUrl = process.env.REACT_APP_API_KEY;
-axios.defaults.baseURL = apiUrl;
+// const apiUrl = "http://localhost:5248";
+//axios.defaults.baseURL = apiUrl;
 
-export default {
+
+
+const Service = {
   getTasks: async () => {
     try {
       const result = await axios.get(`${apiUrl}/item`);
@@ -80,5 +83,7 @@ export default {
     }
   }
 };
+
+export default Service
 
 

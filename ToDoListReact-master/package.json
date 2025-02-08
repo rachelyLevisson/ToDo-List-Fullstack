@@ -30,5 +30,5 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "https://todo-list-fullstack-server.onrender.com"
+  "proxy": "http://localhost:5248"
 }
