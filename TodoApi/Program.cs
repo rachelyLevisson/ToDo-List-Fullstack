@@ -4,6 +4,17 @@ using Microsoft.OpenApi.Models;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddSwaggerGen(options =>
+{
+    options.SwaggerDoc("v1", new OpenApiInfo
+    {
+        Title = "My API",
+        Version = "v1"
+    });
+});
+builder.Services.AddEndpointsApiExplorer();
+
+
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowAllOrigins",
@@ -15,8 +26,8 @@ builder.Services.AddCors(options =>
         });
 });
 
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+
+//builder.Services.AddSwaggerGen();
 
 builder.Services.AddDbContext<ToDoDbContext>(options =>
     options.UseMySql(builder.Configuration.GetConnectionString("ToDoDB"),
@@ -29,11 +40,15 @@ var app = builder.Build();
 
 app.UseCors("AllowAllOrigins");
 
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
+
+// app.UseSwagger();
+// app.UseSwaggerUI();
+ app.UseSwagger();
+ app.UseSwaggerUI(options =>
+ {
+     options.SwaggerEndpoint("/swagger/v1/swagger.json", "My API v1");
+     options.RoutePrefix = string.Empty; 
+ });
 
 
 
