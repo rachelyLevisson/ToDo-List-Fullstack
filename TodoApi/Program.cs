@@ -43,12 +43,12 @@ app.UseCors("AllowAllOrigins");
 
 // app.UseSwagger();
 // app.UseSwaggerUI();
- app.UseSwagger();
- app.UseSwaggerUI(options =>
- {
-     options.SwaggerEndpoint("/swagger/v1/swagger.json", "My API v1");
-     options.RoutePrefix = string.Empty; 
- });
+app.UseSwagger();
+app.UseSwaggerUI(options =>
+{
+    options.SwaggerEndpoint("/swagger/v1/swagger.json", "My API v1");
+    options.RoutePrefix = string.Empty;
+});
 
 
 
@@ -65,7 +65,7 @@ app.MapGet("/item", async (ToDoDbContext db) =>
     }
     catch (Exception e)
     {
-        return Results.Problem("Error occurred: " + e.Message + "and "+ e.Data , e.Source, statusCode: 500);
+        return Results.Problem("Error occurred: " + e.Message, " and " + e.Data +" and "+ e.Source + " and "+ e.InnerException, statusCode: 400);
     }
 });
 
