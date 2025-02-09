@@ -59,6 +59,7 @@ app.MapGet("/item", async (ToDoDbContext db) =>
 {
     try
     {
+        Console.WriteLine("come to");
         var items = await db.Items.ToListAsync();
         return Results.Ok(items);
     }
