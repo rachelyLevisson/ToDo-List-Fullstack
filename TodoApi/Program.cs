@@ -64,7 +64,7 @@ app.MapGet("/item", async (ToDoDbContext db) =>
     }
     catch (Exception e)
     {
-        return Results.Problem("Error occurred: " + e.Message, statusCode: 500);
+        return Results.Problem("Error occurred: " + e.Message + "and "+ e.Data , e.Source, statusCode: 500);
     }
 });
 
