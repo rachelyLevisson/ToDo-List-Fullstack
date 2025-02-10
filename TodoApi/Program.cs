@@ -1,5 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
-//using TodoApi;
+using TodoApi;
 using Microsoft.OpenApi.Models;
 using Microsoft.EntityFrameworkCore;
 
@@ -55,84 +55,84 @@ app.UseSwaggerUI(options =>
 app.MapGet("/", () => "hello world!");
 
 
-//app.MapGet("/item", async (ToDoDbContext db) =>
-// {
-//     try
-//     {
-//         var items = await db.Items.ToListAsync();
-//         return Results.Ok(items);
-//     }
-//     catch (Exception e)
-//     {
-//         return Results.Problem("Error occurred: " + e.Message, " and " + e.Data +" and "+ e.Source + " and "+ e.InnerException, statusCode: 400);
-//     }
-// });
+app.MapGet("/item", async (ToDoDbContext db) =>
+{
+    try
+    {
+        var items = await db.Items.ToListAsync();
+        return Results.Ok(items);
+    }
+    catch (Exception e)
+    {
+        return Results.Problem("Error occurred: " + e.Message, " and " + e.Data +" and "+ e.Source + " and "+ e.InnerException, statusCode: 400);
+    }
+});
 
 
-// app.MapGet("/item/{id}", async (int id, ToDoDbContext db) =>
-// {
-//     try
-//     {
-//         var item = await db.Items.FindAsync(id);
-//         return item is not null ? Results.Ok(item) : Results.NotFound();
-//     }
-//     catch (Exception e)
-//     {
-//         return Results.Problem("Error occurred: " + e.Message, statusCode: 500);
-//     }
-// });
+app.MapGet("/item/{id}", async (int id, ToDoDbContext db) =>
+{
+    try
+    {
+        var item = await db.Items.FindAsync(id);
+        return item is not null ? Results.Ok(item) : Results.NotFound();
+    }
+    catch (Exception e)
+    {
+        return Results.Problem("Error occurred: " + e.Message, statusCode: 500);
+    }
+});
 
-// app.MapPost("/item", async (Item item, ToDoDbContext db) =>
-// {
-//     try
-//     {
-//         if (string.IsNullOrEmpty(item.Name))
-//         {
-//             return Results.BadRequest("Item name is required.");
-//         }
-//         db.Items.Add(item);
-//         await db.SaveChangesAsync();
-//         return Results.Created($"/api/items/{item.Id}", item);
-//     }
-//     catch (Exception e)
-//     {
-//         return Results.Problem("Error occurred: " + e.Message, statusCode: 500);
-//     }
-// });
+app.MapPost("/item", async (Item item, ToDoDbContext db) =>
+{
+    try
+    {
+        if (string.IsNullOrEmpty(item.Name))
+        {
+            return Results.BadRequest("Item name is required.");
+        }
+        db.Items.Add(item);
+        await db.SaveChangesAsync();
+        return Results.Created($"/api/items/{item.Id}", item);
+    }
+    catch (Exception e)
+    {
+        return Results.Problem("Error occurred: " + e.Message, statusCode: 500);
+    }
+});
 
-// app.MapPut("/item/{id}", async (int id, Item item, ToDoDbContext db) =>
-// {
-//     try
-//     {
-//         if (id != item.Id) return Results.BadRequest();
+app.MapPut("/item/{id}", async (int id, Item item, ToDoDbContext db) =>
+{
+    try
+    {
+        if (id != item.Id) return Results.BadRequest();
 
-//         db.Entry(item).State = EntityState.Modified;
-//         await db.SaveChangesAsync();
-//         return Results.NoContent();
-//     }
-//     catch (Exception e)
-//     {
-//         return Results.Problem("Error occurred: " + e.Message, statusCode: 500);
-//     }
-// });
+        db.Entry(item).State = EntityState.Modified;
+        await db.SaveChangesAsync();
+        return Results.NoContent();
+    }
+    catch (Exception e)
+    {
+        return Results.Problem("Error occurred: " + e.Message, statusCode: 500);
+    }
+});
 
-// app.MapDelete("/item/{id}", async (int id, ToDoDbContext db) =>
-// {
-//     try
-//     {
-//         var item = await db.Items.FindAsync(id);
-//         if (item is null) return Results.NotFound();
+app.MapDelete("/item/{id}", async (int id, ToDoDbContext db) =>
+{
+    try
+    {
+        var item = await db.Items.FindAsync(id);
+        if (item is null) return Results.NotFound();
 
-//         db.Items.Remove(item);
-//         await db.SaveChangesAsync();
-//         return Results.NoContent();
-//     }
-//     catch (Exception e)
-//     {
+        db.Items.Remove(item);
+        await db.SaveChangesAsync();
+        return Results.NoContent();
+    }
+    catch (Exception e)
+    {
 
-//         return Results.Problem("Error occurred: " + e.Message, statusCode: 500);
-//     }
+        return Results.Problem("Error occurred: " + e.Message, statusCode: 500);
+    }
 
-// });
+});
 
 app.Run();
