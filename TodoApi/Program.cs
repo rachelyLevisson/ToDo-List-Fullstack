@@ -29,9 +29,9 @@ builder.Services.AddCors(options =>
 
 //builder.Services.AddSwaggerGen();
 
-//builder.Services.AddDbContext<ToDoDbContext>(options =>
-   // options.UseMySql(builder.Configuration.GetConnectionString("ToDoDB"),
-   // ServerVersion.AutoDetect(builder.Configuration.GetConnectionString("ToDoDB"))));
+builder.Services.AddDbContext<ToDoDbContext>(options =>
+   options.UseMySql(builder.Configuration.GetConnectionString("ToDoDB"),
+   ServerVersion.AutoDetect(builder.Configuration.GetConnectionString("ToDoDB"))));
 
 
 
@@ -52,7 +52,7 @@ app.UseSwaggerUI(options =>
 
 
 
-app.MapGet("/", () => "hello world!");
+// app.MapGet("/aa", () => "hello world!");
 
 
 app.MapGet("/item", async (ToDoDbContext db) =>
