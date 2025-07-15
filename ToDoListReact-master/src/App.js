@@ -13,7 +13,6 @@ function App() {
   async function createTodo(e) {
     e.preventDefault();
     await service.addTask(newTodo);
-    
     setNewTodo("");//clear input
     await getTodos();//refresh tasks list (in order to see the new one)
   }
@@ -32,7 +31,7 @@ function App() {
     getTodos();
   }, []);
 
-  return (  
+  return (
     <section className="todoapp">
       <header className="header">
         <h1>todos</h1>

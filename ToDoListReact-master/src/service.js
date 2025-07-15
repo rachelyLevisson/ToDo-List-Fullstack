@@ -1,30 +1,15 @@
 import axios from 'axios';
 
-// const apiUrl = process.env.REACT_APP_API_KEY;
-const apiUrl = "http://localhost:5248";
-//axios.defaults.baseURL = apiUrl;
+const apiUrl = process.env.REACT_APP_API_KEY;
 
-
-
-const Service = {
+export default {
   getTasks: async () => {
-    try {
-      const result = await axios.get(`${apiUrl}/item`);
-      console.log(result);
-      return result.data;
-    } catch (error) {
-      if (error.response) {
-        console.log("Error fetching tasks:", error.response.data);
-        return { error: "Failed to fetch tasks. Reason: " + error.response.data.message };
-      } else {
-        console.log("Error:", error.message);
-        return { error: "Failed to fetch tasks. Reason: " + error.message };
-      }
-    }
+    const result = await axios.get(`${apiUrl}/item`)    
+    return result.data;
   },
 
-  addTask: async (name) => {
-    try {
+  addTask: async(name)=>{
+       try {
       console.log('addTask', name)
       const result = await axios.post(`${apiUrl}/item`, { name, isComplete: false })
       return result.data;
@@ -38,12 +23,11 @@ const Service = {
         return { error: "Failed to add task. Reason: " + error.message };
       }
     }
+
   },
 
-
-
-  setCompleted: async (id, isComplete) => {
-    try {
+  setCompleted: async(id, isComplete)=>{
+   try {
       console.log('setCompleted', { id, isComplete })
       const obj = (await axios.get(`${apiUrl}/item/${id}`)).data
       const updateItem = {
@@ -66,7 +50,7 @@ const Service = {
     }
   },
 
-  deleteTask: async (id) => {
+  deleteTask:async(id)=>{
     try {
       console.log('deleteTask')
       const res = await axios.delete(`${apiUrl}/item/${id}`);
@@ -82,8 +66,5 @@ const Service = {
       }
     }
   }
+
 };
-
-export default Service
-
-

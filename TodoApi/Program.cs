@@ -41,18 +41,19 @@ var app = builder.Build();
 app.UseCors("AllowAllOrigins");
 
 
-// app.UseSwagger();
-// app.UseSwaggerUI();
-app.UseSwagger();
-app.UseSwaggerUI(options =>
+if (app.Environment.IsDevelopment())
 {
-    options.SwaggerEndpoint("/swagger/v1/swagger.json", "My API v1");
-    options.RoutePrefix = string.Empty;
-});
+    app.UseSwagger();
+    app.UseSwaggerUI(options =>
+    {
+        options.SwaggerEndpoint("/swagger/v1/swagger.json", "My API v1");
+        options.RoutePrefix = string.Empty;
+    });
+}
 
 
 
-// app.MapGet("/aa", () => "hello world!");
+app.MapGet("/", () => "hello world!");
 
 
 app.MapGet("/item", async (ToDoDbContext db) =>
