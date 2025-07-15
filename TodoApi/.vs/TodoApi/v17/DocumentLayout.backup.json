@@ -1,0 +1,58 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\\u05DC\u05D5\u05D9\u05E1\u05D5\u05DF\\Desktop\\ToDo-List-Fullstack\\TodoApi\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{8E71EDA4-FE1C-2822-A6C9-812607CDF2E0}|TodoApi.csproj|c:\\users\\\u05DC\u05D5\u05D9\u05E1\u05D5\u05DF\\desktop\\todo-list-fullstack\\todoapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8E71EDA4-FE1C-2822-A6C9-812607CDF2E0}|TodoApi.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8E71EDA4-FE1C-2822-A6C9-812607CDF2E0}|TodoApi.csproj|c:\\users\\\u05DC\u05D5\u05D9\u05E1\u05D5\u05DF\\desktop\\todo-list-fullstack\\todoapi\\tododbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8E71EDA4-FE1C-2822-A6C9-812607CDF2E0}|TodoApi.csproj|solutionrelative:tododbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ToDoDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\\u05DC\u05D5\u05D9\u05E1\u05D5\u05DF\\Desktop\\ToDo-List-Fullstack\\TodoApi\\ToDoDbContext.cs",
+              "RelativeDocumentMoniker": "ToDoDbContext.cs",
+              "ToolTip": "C:\\Users\\\u05DC\u05D5\u05D9\u05E1\u05D5\u05DF\\Desktop\\ToDo-List-Fullstack\\TodoApi\\ToDoDbContext.cs",
+              "RelativeToolTip": "ToDoDbContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEcAAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-15T10:16:13.621Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\\u05DC\u05D5\u05D9\u05E1\u05D5\u05DF\\Desktop\\ToDo-List-Fullstack\\TodoApi\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\\u05DC\u05D5\u05D9\u05E1\u05D5\u05DF\\Desktop\\ToDo-List-Fullstack\\TodoApi\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-15T10:15:44.669Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
